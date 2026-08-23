@@ -1,0 +1,84 @@
+import java.util.*;
+
+class Book {
+
+    int id;
+    String title;
+    boolean available;
+
+    Book(int id, String title) {
+        this.id = id;
+        this.title = title;
+        this.available = true;
+    }
+
+    void display() {
+        System.out.println(
+            id + " | " + title +
+            " | " + (available ? "Available" : "Issued")
+        );
+    }
+}
+
+public class LibraryManagement {
+
+    static ArrayList<Book> books = new ArrayList<>();
+
+    static void issueBook(int id) {
+
+        for (Book book : books) {
+
+            if (book.id == id) {
+
+                if (book.available) {
+                    book.available = false;
+                    System.out.println("Book issued.");
+                }
+                else {
+                    System.out.println("Book already issued.");
+                }
+
+                return;
+            }
+        }
+
+        System.out.println("Book not found.");
+    }
+
+    static void returnBook(int id) {
+
+        for (Book book : books) {
+
+            if (book.id == id) {
+                book.available = true;
+                System.out.println("Book returned.");
+                return;
+            }
+        }
+
+        System.out.println("Book not found.");
+    }
+
+    public static void main(String[] args) {
+
+        books.add(new Book(101, "Clean Code"));
+        books.add(new Book(102, "Java Programming"));
+        books.add(new Book(103, "Data Structures"));
+
+        System.out.println("Library Books:");
+
+        for (Book book : books) {
+            book.display();
+        }
+
+        issueBook(102);
+
+        System.out.println("\nAfter Issue:");
+
+        for (Book book : books) {
+            book.display();
+        }
+
+        returnBook(102);
+    }
+}
