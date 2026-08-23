@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class MergeArrays {
+    public static void main(String[] args) {
+
+        int[] a = {1, 2, 3};
+        int[] b = {4, 5, 6};
+
+        int[] result = new int[a.length + b.length];
+
+        int index = 0;
+
+        for (int num : a) {
+            result[index++] = num;
+        }
+
+        for (int num : b) {
+            result[index++] = num;
+        }
+
+        System.out.println(Arrays.toString(result));
+    }
+}
