@@ -1,0 +1,24 @@
+public class DigitPositionSum {
+    public static void main(String[] args) {
+
+        int num = 123456;
+
+        String str = String.valueOf(num);
+
+        int evenSum = 0;
+        int oddSum = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+
+            int digit = str.charAt(i) - '0';
+
+            if ((i + 1) % 2 == 0)
+                evenSum += digit;
+            else
+                oddSum += digit;
+        }
+
+        System.out.println("Odd position sum: " + oddSum);
+        System.out.println("Even position sum: " + evenSum);
+    }
+}
