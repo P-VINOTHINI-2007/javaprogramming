@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class ReplaceDuplicates {
+    public static void main(String[] args) {
+
+        String str = "programming";
+
+        HashSet<Character> set = new HashSet<>();
+
+        String result = "";
+
+        for (char ch : str.toCharArray()) {
+
+            if (set.contains(ch)) {
+                result += "*";
+            }
+            else {
+                result += ch;
+                set.add(ch);
+            }
+        }
+
+        System.out.println(result);
+    }
+}
