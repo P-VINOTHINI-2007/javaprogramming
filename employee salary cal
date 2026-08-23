@@ -1,0 +1,35 @@
+class Employee {
+
+    String name;
+    double basicSalary;
+
+    Employee(String name, double basicSalary) {
+        this.name = name;
+        this.basicSalary = basicSalary;
+    }
+
+    double calculateSalary() {
+
+        double hra = basicSalary * 0.20;
+        double da = basicSalary * 0.10;
+
+        return basicSalary + hra + da;
+    }
+
+    void display() {
+
+        System.out.println("Employee: " + name);
+        System.out.println("Basic Salary: " + basicSalary);
+        System.out.println("Total Salary: " + calculateSalary());
+    }
+}
+
+public class EmployeeSalary {
+    public static void main(String[] args) {
+
+        Employee emp =
+            new Employee("Arun", 30000);
+
+        emp.display();
+    }
+}
